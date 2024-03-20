@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Progress Bars</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <h1>Today: <span id="current-date"></span></h1>
+
+  <h2>The progress for this year</h2>
+  <div class="progress-container">
+    <div id="year-progress" class="progress-bar"></div>
+  </div>
+  <div class="progress-text" id="year-progress-text"></div>
+
+  <h2>The progress for this month</h2>
+  <div class="progress-container">
+    <div id="month-progress" class="progress-bar"></div>
+  </div>
+  <div class="progress-text" id="month-progress-text"></div>
+
+  <script>
+    // Set the current date
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.toDateString()} ${currentDate.getFullYear()}`;
+    // Select the element with the "current-date" ID
+    const currentDateElement = document.getElementById("current-date");
+    // Set the innerText of the currentDateElement to formattedDate
+    currentDateElement.innerText = formattedDate;
+
+
+    // Calculate the progress for the current year
+    const yearProgress = Math.floor(((currentDate.getMonth() * 30) + currentDate.getDate()) / 365 * 100);
+    document.getElementById("year-progress").style.width = `${yearProgress}%`;
+    document.getElementById("year-progress-text").innerText = `${yearProgress}%`;
+
+    // Calculate the progress for the current month
+    const monthProgress = Math.floor(currentDate.getDate() / new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate() * 100);
+    document.getElementById("month-progress").style.width = `${monthProgress}%`;
+    document.getElementById("month-progress-text").innerText = `${monthProgress}%`;
+
+  </script>
+</body>
+</html>

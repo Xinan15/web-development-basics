@@ -1,0 +1,26 @@
+h1 {
+    background-color: black;
+    color: white;
+  }
+#red {
+    color:red;
+  }
+#blue {
+    color:blue;
+  }
+#orange {
+    color:orange;
+}
+#green {
+    color:green;
+}
+#yellow {
+    color:yellow;
+}
+img {
+    height: 200px;
+    width: 200px;
+}
+.ccolor-title{
+    font-weight: normal;
+}
